@@ -62,7 +62,7 @@ include 'admin/db_connect.php';
                                                 <label for="" class="control-label">Batch</label>
                                                 <input type="input" class="form-control datepickerY" name="batch" required>
                                             </div>
-                                            <div class="col-md-4">
+                                            <!-- <div class="col-md-4">
                                                 <label for="" class="control-label">Course Graduated</label>
                                                 <select class="custom-select select2" name="course_id" required>
                                                     <option></option>
@@ -73,7 +73,7 @@ include 'admin/db_connect.php';
                                                         <option value="<?php echo $row['id'] ?>"><?php echo $row['course'] ?></option>
                                                     <?php endwhile; ?>
                                                 </select>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <div class="row form-group">
                                             <div class="col-md-5">

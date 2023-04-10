@@ -55,9 +55,9 @@ Class Action {
 						if($key != 'password' && !is_numeric($key))
 							$_SESSION['bio'][$key] = $value;
 
-							if($key == "status"){
-								$_SESSION['bio']["status"] = 0;
-							}	
+						if($key == "status"){
+							$_SESSION['bio']['status'] = 0;
+						}	
 					}
 				}
 			}
