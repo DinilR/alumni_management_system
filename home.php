@@ -55,7 +55,9 @@ span.hightlight{
             <div class="container-fluid h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end mb-4 page-title">
-                    	<h3 class="text-white">Welcome to <?php echo $_SESSION['system']['name']; ?></h3>
+                    	<h3 class="text-white">Welcome to Alumni Management System</h3>
+                        <h3 class="text-white">St. Thomas' College</h3>
+                        <h3 class="text-white">Mathara.</h3>
                         <hr class="divider my-4" />
 
                     <div class="col-md-12 mb-2 justify-content-center">
@@ -79,7 +81,7 @@ span.hightlight{
                 <div class="card event-list" data-id="<?php echo $row['id'] ?>">
                      <div class='banner'>
                         <?php if(!empty($row['banner'])): ?>
-                            <img src="admin/assets/uploads/<?php echo($row['banner']) ?>" alt="">
+                            <img src="assets/events/<?php echo($row['banner']) ?>" alt="">
                         <?php endif; ?>
                     </div>
                     <div class="card-body">

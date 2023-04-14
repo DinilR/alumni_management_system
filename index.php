@@ -17,7 +17,7 @@
 
     <style>
     	header.masthead {
-		  background: url(admin/assets/uploads/<?php echo $_SESSION['system']['cover_img'] ?>);
+		  background: url(admin/assets/uploads/background_1.jpg);
 		  background-repeat: no-repeat;
 		  background-size: cover;
 		}
@@ -50,8 +50,11 @@
     max-height: calc(100%);
     max-width: calc(100%);
   }
-  body, footer {
+ footer {
     background: #000000e6 !important;
+}
+ body{
+    background: #1b1836 !important;
 }
  
 
@@ -72,14 +75,16 @@ a.jqte_tool_label.unselectable {
       </div>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="./"><?php echo $_SESSION['system']['name'] ?></a>
+                            
+                <a class="navbar-brand js-scroll-trigger" href="./"><img src="assets/img/Stcmatara-removebg-preview.png" alt="st. thomas' college logo" width="45" height="45" ><?php echo "  Alumni Management System" ?></a>
+
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=alumni_list">Alumni</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=gallery">Gallery</a></li>
                         <?php if(isset($_SESSION['login_id'])): ?>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=alumni_list">Alumni</a></li>  
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=careers">Jobs</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=forum">Forums</a></li>
                         <?php endif; ?>
