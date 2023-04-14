@@ -55,9 +55,7 @@ Class Action {
 						if($key != 'password' && !is_numeric($key))
 							$_SESSION['bio'][$key] = $value;
 
-						if($key == "status"){
-							$_SESSION['bio']['status'] = 0;
-						}	
+							
 					}
 				}
 			}
@@ -71,8 +69,37 @@ Class Action {
 				}
 				return 1;
 		}else{
-			return 3;
-		}
+			
+			$qry = $this->db->query("SELECT * FROM users where alumnus_id = ".$id);
+			if($qry->num_rows > 0){
+				foreach ($qry->fetch_array() as $key => $value) {
+					if($key != 'password' && !is_numeric($key))
+						$_SESSION['login_'.$key] = $value;
+				}
+				if($_SESSION['login_alumnus_id'] > 0){
+					$bio = $this->db->query("SELECT * FROM alumnus_bio where id = ".$_SESSION['login_alumnus_id']);
+					if($bio->num_rows > 0){
+						foreach ($bio->fetch_array() as $key => $value) {
+							
+							if($key != 'password' && !is_numeric($key))
+								$_SESSION['bio'][$key] = $value;
+						}
+					}
+				}
+				if($_SESSION['bio']['status'] != 1){
+						foreach ($_SESSION as $key => $value) {
+							unset($_SESSION[$key]);
+						}
+						return 2;
+						exit;
+						
+					}
+					
+					return 1;
+				}else {
+					return 3;
+				}
+	}
 	}
 	function logout(){
 		session_destroy();
@@ -193,8 +220,11 @@ Class Action {
 					unset($_SESSION[$key]);
 				}
 				$login = $this->login2();
-				if($login)
-				return 1;
+				// print("login: ".$login);
+				if($login){
+					return 1;
+				}
+				
 			}
 		}
 	}

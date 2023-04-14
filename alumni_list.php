@@ -90,7 +90,7 @@ header.masthead,header.masthead:before {
 		                      <div class="input-group-prepend">
 		                        <span class="input-group-text" id="filter-field"><i class="fa fa-search"></i></span>
 		                      </div>
-		                      <input type="text" class="form-control" id="filter" placeholder="Filter name,course, etc." aria-label="Filter" aria-describedby="filter-field">
+		                      <input type="text" class="form-control" id="filter" placeholder="Filter name,batch, etc." aria-label="Filter" aria-describedby="filter-field">
 		                    </div>
 		                </div>
 		                <div class="col-md-4">
@@ -108,7 +108,7 @@ header.masthead,header.masthead:before {
                     <div class="row">
                 <?php
                 $fpath = 'admin/assets/uploads';
-                $alumni = $conn->query("SELECT a.*,c.course,Concat(a.lastname,', ',a.firstname,' ',a.middlename) as name from alumnus_bio a inner join courses c on c.id = a.course_id order by Concat(a.lastname,', ',a.firstname,' ',a.middlename) asc");
+                $alumni = $conn->query("SELECT *,Concat(lastname,', ',firstname,' ',middlename) as name from alumnus_bio order by name asc");
                 while($row = $alumni->fetch_assoc()):
                 ?>
                 <div class="col-md-4 item">
@@ -124,7 +124,6 @@ header.masthead,header.masthead:before {
                                 <p class="filter-txt"><b><?php echo $row['name'] ?></b></p>
                                 <hr class="divider w-100" style="max-width: calc(100%)">
                                 <p class="filter-txt">Email: <b><?php echo $row['email'] ?></b></p>
-                                <p class="filter-txt">Course: <b><?php echo $row['course'] ?></b></p>
                                 <p class="filter-txt">Batch: <b><?php echo $row['batch'] ?></b></p>
                                 <p class="filter-txt">Currently working in/as <b><?php echo $row['connected_to'] ?></b></p>
                                     <br>

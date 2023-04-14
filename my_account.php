@@ -51,6 +51,9 @@ include 'admin/db_connect.php';
                                                 <input type="text" class="form-control" name="middlename" value="<?php echo $_SESSION['bio']['middlename'] ?>" >
                                             </div>
                                         </div>
+                                        
+                                                <input type="hidden" name="id" value="<?php echo $_SESSION['bio']['id'] ?>" required>
+                                        
                                         <div class="row form-group">
                                             <div class="col-md-4">
                                                 <label for="" class="control-label">Gender</label>
@@ -62,18 +65,6 @@ include 'admin/db_connect.php';
                                             <div class="col-md-4">
                                                 <label for="" class="control-label">Batch</label>
                                                 <input type="input" class="form-control datepickerY" name="batch" value="<?php echo $_SESSION['bio']['batch'] ?>" required>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="" class="control-label">Course Graduated</label>
-                                                <select class="custom-select select2" name="course_id" required>
-                                                    <option></option>
-                                                    <?php 
-                                                    $course = $conn->query("SELECT * FROM courses order by course asc");
-                                                    while($row=$course->fetch_assoc()):
-                                                    ?>
-                                                        <option value="<?php echo $row['id'] ?>"  <?php echo $_SESSION['bio']['course_id'] ==$row['id'] ? 'selected' : '' ?>><?php echo $row['course'] ?></option>
-                                                    <?php endwhile; ?>
-                                                </select>
                                             </div>
                                         </div>
                                         <div class="row form-group">
@@ -151,11 +142,14 @@ $('#update_account').submit(function(e){
         type: 'POST',
         success:function(resp){
             if(resp == 1){
+                console.log(resp);
                 alert_toast("Account successfully updated.",'success');
                 setTimeout(function(){
-                 location.reload()
+                 location.href ='index.php?page=home';
                 },700)
+                
             }else{
+                console.log(resp);
                 $('#msg').html('<div class="alert alert-danger">email already exist.</div>')
                 end_load()
             }

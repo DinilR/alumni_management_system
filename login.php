@@ -39,6 +39,7 @@
 				if(resp == 1){
 					location.href ='<?php echo isset($_GET['redirect']) ? $_GET['redirect'] : 'index.php?page=home' ?>';
 				}else if(resp == 2){
+					console.log(resp);
 					$('#login-frm').prepend('<div class="alert alert-danger">Your account is not yet verified.</div>')
 					$('#login-frm button[type="submit"]').removeAttr('disabled').html('Login');
 				}else{

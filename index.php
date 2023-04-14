@@ -197,7 +197,10 @@ a.jqte_tool_label.unselectable {
     </body>
     <script type="text/javascript">
       $('#login').click(function(){
-        uni_modal("Login",'login.php')
+        uni_modal("Login",'login.php');
+        
+
+
       })
     </script>
     <?php $conn->close() ?>

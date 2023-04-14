@@ -1,7 +1,7 @@
 <?php include 'db_connect.php' ?>
 <?php
 if(isset($_GET['id'])){
-$qry = $conn->query("SELECT a.*,c.course,Concat(a.lastname,', ',a.firstname,' ',a.middlename) as name from alumnus_bio a inner join courses c on c.id = a.course_id where a.id= ".$_GET['id']);
+$qry = $conn->query("SELECT *, Concat(lastname,', ',firstname,' ',middlename) as name from alumnus_bio where id= ".$_GET['id']);
 foreach($qry->fetch_array() as $k => $val){
 	$$k=$val;
 }
@@ -49,7 +49,6 @@ foreach($qry->fetch_array() as $k => $val){
 				<p>Name: <b><?php echo $name ?></b></p>
 				<p>Email: <b><?php echo $email ?></b></p>
 				<p>Batch: <b><?php echo $batch ?></b></p>
-				<p>Course: <b><?php echo $course ?></b></p>
 			</div>
 			<div class="col-md-6">
 				<p>Gender: <b><?php echo $gender ?></b></p>
