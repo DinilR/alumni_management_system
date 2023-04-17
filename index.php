@@ -66,6 +66,21 @@ a.jqte_tool_label.unselectable {
 a.jqte_tool_label.unselectable {
     height: 22px !important;
 }*/
+
+@media (max-width: 991px) {
+  .navbar-nav > .nav-item > .nav-link {
+    background-color: #08c !important;
+    opacity: 1 !important;
+    color: white;
+  }
+
+  #mainNav .navbar-nav .nav-item .nav-link {
+    color: inherit !important;
+  }
+
+ 
+}
+
     </style>
     <body id="page-top">
         <!-- Navigation-->
@@ -73,41 +88,64 @@ a.jqte_tool_label.unselectable {
         <div class="toast-body text-white">
         </div>
       </div>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container">
-                            
-                <a class="navbar-brand js-scroll-trigger" href="./"><img src="assets/img/Stcmatara-removebg-preview.png" alt="st. thomas' college logo" width="45" height="45" ><?php echo "  Alumni Management System" ?></a>
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand js-scroll-trigger" href="./">
+      <img src="assets/img/Stcmatara-removebg-preview.png" alt="st. thomas' college logo" width="45" height="45" />
+      <?php echo "  Alumni Management System" ?>
+    </a>
 
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=gallery">Gallery</a></li>
-                        <?php if(isset($_SESSION['login_id'])): ?>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=alumni_list">Alumni</a></li>  
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=careers">Jobs</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=forum">Forums</a></li>
-                        <?php endif; ?>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a></li>
-                        <?php if(!isset($_SESSION['login_id'])): ?>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" id="login">Login</a></li>
-                        <?php else: ?>
-                        <li class="nav-item">
-                          <div class=" dropdown mr-4">
-                              <a href="#" class="nav-link js-scroll-trigger"  id="account_settings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['login_name'] ?> <i class="fa fa-angle-down"></i></a>
-                                <div class="dropdown-menu" aria-labelledby="account_settings" style="left: -2.5em;">
-                                  <a class="dropdown-item" href="index.php?page=my_account" id="manage_my_account"><i class="fa fa-cog"></i> Manage Account</a>
-                                  <a class="dropdown-item" href="admin/ajax.php?action=logout2"><i class="fa fa-power-off"></i> Logout</a>
-                                </div>
-                          </div>
-                        </li>
-                        <?php endif; ?>
-                        
-                     
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="index.php?page=home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="index.php?page=gallery">Gallery</a>
+        </li>
+
+        <?php if(isset($_SESSION['login_id'])): ?>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="index.php?page=alumni_list">Alumni</a>
+        </li>  
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="index.php?page=careers">Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="index.php?page=forum">Forums</a>
+        </li>
+        <?php endif; ?>
+
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a>
+        </li>
+
+        <?php if(!isset($_SESSION['login_id'])): ?>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#" id="login">Login</a>
+        </li>
+        <?php else: ?>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" id="account_settings" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?php echo $_SESSION['login_name'] ?>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="account_settings">
+            <a class="dropdown-item" href="index.php?page=my_account" id="manage_my_account"><i class="fa fa-cog"></i> Manage Account</a>
+            <a class="dropdown-item" href="admin/ajax.php?action=logout2"><i class="fa fa-power-off"></i> Logout</a>
+          </div>
+        </li>
+        <?php endif; ?>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
        
        
        <?php $page = isset($_GET['page']) ? $_GET['page'] :'home'; ?>
