@@ -109,10 +109,20 @@ a.jqte_tool_label.unselectable {
             </div>
         </nav>
        
-        <?php 
-        $page = isset($_GET['page']) ?$_GET['page'] : "home";
-        include $page.'.php';
-        ?>
+       
+       <?php $page = isset($_GET['page']) ? $_GET['page'] :'home'; ?>
+       <?php if (!isset($_SESSION['bio']['status'])) {
+         if($page != ('careers' || 'alumni_list' || 'forum' || 'my_account')){
+           include $page.'.php';
+         }else {
+           include 'home.php';
+         }
+       } else {
+         include $page.'.php';
+         
+       }
+       ?>
+        
        
 
 <div class="modal fade" id="confirm_modal" role='dialog'>
